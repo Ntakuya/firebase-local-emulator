@@ -7,8 +7,10 @@ services:
       dockerfile: ./docker/Dockerfile
     restart: always
     tty: true
+    command: firebase emulators:start
     ports:
-      - "5001:5001"
-      - "9000:9000"
-      - "8080:8080"
-      - "5000:5000"
+      - 5001:5001 # functions
+      - 9000:9000 # database
+      - 8080:8080 # fire store
+      - 5000:5000
+      - 4000:4000 # UI
