@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  firebase_emulator:
+    container_name: firebase_emulator
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    tty: true
+    command: firebase emulators:start
+    ports:
+      - 5001:5001 # functions
+      - 9000:9000 # database
+      - 8080:8080 # fire store
+      - 5000:5000
+      - 4000:4000 # UI
